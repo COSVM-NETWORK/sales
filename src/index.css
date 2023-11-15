@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    298.59deg,
+    #ffffff 33.4%,
+    rgba(255, 255, 255, 0) 170.23%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+body {
+  @apply flex min-h-screen flex-col text-white;
+  background-color: #0f0e13;
+  background-image: url("/img/bg.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+}
+
+.swiper-wrapper {
+  @apply items-center lg:justify-between;
+}
+
+.gradient-border {
+  @apply relative;
+}
+
+.gradient-border::before {
+  @apply absolute inset-0 rounded-2xl p-0.5 transition-all duration-300;
+  content: "";
+  background: linear-gradient(
+    160deg,
+    #3e1f5e 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient-border:hover::before {
+  @apply p-1;
+  background: linear-gradient(160deg, #3e1f5e 0%, #3e1f5e 100%);
+}
+
+.progress {
+  @apply relative h-6 w-full rounded-2xl bg-gray-300;
+}
+.progress-bar {
+  @apply absolute inset-0 h-full rounded-2xl bg-primary;
+  box-shadow: rgba(0, 0, 0, 0.18) 2px 4px 4px;
+}
+.progress-bar::after {
+  content: "";
+  position: absolute;
+  height: 24px;
+  border-radius: 16px;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  background-image: linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.2) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.2) 75%,
+          transparent 75%,
+          transparent
+  );
+  width: 100%;
+  background-size: 30px 30px;
+  animation: 1.2s linear 0.5s infinite normal none running load;
+}
+@keyframes load {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
